@@ -13,7 +13,6 @@ function getCovidStats() {
 			document.getElementById('card').innerHTML += 
 			`
 					<div class="container">
-						<div id = "accordian">
 							<div class="card">
 								<div class="card-header">
 									<h3>
@@ -23,24 +22,27 @@ function getCovidStats() {
 									</h3>
 								</div>
 							</div>
-						</div>
 					</div>
+					
 			`
 			for (const item in obj[state]) {
 				if(item == 'districtData') {
 					for (const dist in obj[state][item]) {
 						document.getElementById('card').innerHTML += 
 						`	
-								<div id = "#state${sc}" class="card-header">
+							<div class="container">
+								<div id = "#state${sc}" class="card-header colloapse">
 									<h5>
 										<a class="text-info" href="#district${dst}" data-parent="#accordion" data-toggle="collapse">
 											${dist}
 										</a>
 									</h5>
 								</div>
+							<div class="container">
 						`
 						document.getElementById('card').innerHTML += 
 						`	
+								<div class="container">
 									<div id="district${dst}" class="collapse">
 										<div class="card card-body">
 											<p class="display-5">
@@ -50,6 +52,7 @@ function getCovidStats() {
 											</p>
 										</div>
 									</div>
+								<div class="container">
 									
 						`
 						dst += 1
