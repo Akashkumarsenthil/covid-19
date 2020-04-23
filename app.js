@@ -9,20 +9,23 @@ function getCovidStats() {
 		var sc = 0
 		var dst = 0
 		for(const state in obj) {
-			sc += 1;
 			document.getElementById('card').innerHTML += 
 			`
 					<div class="container">
+						<div id = "accordian">
 							<div class="card">
 								<div class="card-header">
-									<h3>
+									<h4>
 										<a href="#state${sc}" data-parent="#accordion" data-toggle="collapse">
 											${state}
 										</a>
-									</h3>
+									</h4>
 								</div>
 							</div>
+						</div>
 					</div>
+				
+					<div class="container">
 					
 			`
 			for (const item in obj[state]) {
@@ -56,9 +59,11 @@ function getCovidStats() {
 									
 						`
 						dst += 1
+						sc += 1
 					}
 				}
 			}
+			
 		}
 	})
 	.catch(function() {
