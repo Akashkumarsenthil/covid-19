@@ -6,6 +6,7 @@ function getCovidStats() {
 	fetch('https://api.covid19india.org/state_district_wise.json')
 	.then(function(resp) { return resp.json() })
 	.then(function(obj) {
+		console.log(obj)
 		var sc = 0
 		var dst = 0
 		for(const state in obj) {
@@ -49,9 +50,9 @@ function getCovidStats() {
 									<div id="district${dst}" class="collapse">
 										<div class="card card-body">
 											<p class="display-5">
-												Total Cases: ${obj[state][item][dist].confirmed}<br>
+												Total Confirmed Cases: ${obj[state][item][dist].confirmed}<br>
 												Active: ${obj[state][item][dist].active}<br> 
-												Died: ${obj[state][item][dist].deceased}<br>
+												decreased ${obj[state][item][dist].deceased}<br>
 											</p>
 										</div>
 									</div>
